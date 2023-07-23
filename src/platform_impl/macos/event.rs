@@ -250,11 +250,11 @@ pub(super) fn event_mods(event: &NSEvent) -> ModifiersState {
     );
     m.set(
         ModifiersState::ALT,
-        flags.contains(NSEventModifierFlags::NSAlternateKeyMask),
+        flags.contains(NSEventModifierFlags::NSCommandKeyMask),
     );
     m.set(
         ModifiersState::LOGO,
-        flags.contains(NSEventModifierFlags::NSCommandKeyMask),
+        flags.contains(NSEventModifierFlags::NSAlternateKeyMask),
     );
     m
 }
