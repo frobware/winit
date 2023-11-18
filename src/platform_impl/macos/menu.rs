@@ -30,10 +30,7 @@ pub fn initialize() {
     let hide_item = menu_item(
         &hide_item_title,
         sel!(hide:),
-        Some(KeyEquivalent {
-            key: ns_string!("h"),
-            masks: None,
-        }),
+	None,		    // Passing None here to omit the shortcut.
     );
 
     // Hide other applications menu item
@@ -41,12 +38,7 @@ pub fn initialize() {
     let hide_others_item = menu_item(
         hide_others_item_title,
         sel!(hideOtherApplications:),
-        Some(KeyEquivalent {
-            key: ns_string!("h"),
-            masks: Some(
-                NSEventModifierFlags::NSAlternateKeyMask | NSEventModifierFlags::NSCommandKeyMask,
-            ),
-        }),
+	None,		    // Passing None here to omit the shortcut.
     );
 
     // Show applications menu item
@@ -59,12 +51,9 @@ pub fn initialize() {
     // Quit application menu item
     let quit_item_title = ns_string!("Quit ").concat(&process_name);
     let quit_item = menu_item(
-        &quit_item_title,
-        sel!(terminate:),
-        Some(KeyEquivalent {
-            key: ns_string!("q"),
-            masks: None,
-        }),
+	&quit_item_title,
+	sel!(terminate:),
+	None,		    // Passing None here to omit the shortcut.
     );
 
     app_menu.addItem(&about_item);
